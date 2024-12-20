@@ -17,7 +17,7 @@
                 // need to convert back to CreateProductResponse
                 var response = result.Adapt<CreateProductResponse>();
 
-                //return the newly created product ID using the results class from ASP>Net
+                // return the newly created product ID using the results class from ASP.Net
                 return Results.Created($"/products/{response.Id}", response);
             })
                 // Carter library extension methods to provide ways to configure out HTTP method
