@@ -9,9 +9,9 @@
 
         public InternalServerException(string message, string details) :base(message)
         {
-            details = details;
+            Details = details;
         }
 
-        public string? Details { get }
+        public string? Details { get; }
     }
 }
