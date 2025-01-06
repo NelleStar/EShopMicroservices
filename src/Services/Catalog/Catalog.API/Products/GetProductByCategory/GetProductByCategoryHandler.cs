@@ -8,14 +8,11 @@
         public async Task<GetProductByCategoryResult> Handle(GetProductByCategoryQuery query, CancellationToken cancellationToken)
         {
             logger.LogInformation("GetProductByCategoryQueryHandler.Handle called with {@Query}", query);
+           
             var products = await session.Query<Product>()
                 .Where(p => p.Category.Contains(query.Category))
                 .ToListAsync();
-            if(!products.Any())
-            {
-                throw new CategoryNotFoundException();
-            }
-
+           
             return new GetProductByCategoryResult(products);
         }
     }
