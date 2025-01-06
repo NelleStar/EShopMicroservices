@@ -1,5 +1,4 @@
-﻿
-namespace Catalog.API.Products.GetProducts
+﻿namespace Catalog.API.Products.GetProducts
 {
     // best practice - always define request and response in the endpoint
     public record GetProductsResponse(IEnumerable<Product> Products);
@@ -16,7 +15,7 @@ namespace Catalog.API.Products.GetProducts
                 var response = result.Adapt<GetProductsResponse>();
 
                 // return the response
-                return Results.Ok(result);
+                return Results.Ok(response);
             })
             .WithName("GetProducts")
             .Produces<GetProductsResponse>(StatusCodes.Status200OK)

@@ -1,5 +1,4 @@
-﻿
-namespace Catalog.API.Products.GetProducts
+﻿namespace Catalog.API.Products.GetProducts
 {
     // best practice - always define query/command and result in the Handler
     public record GetProductsQuery() : IQuery<GetProductsResult>;
