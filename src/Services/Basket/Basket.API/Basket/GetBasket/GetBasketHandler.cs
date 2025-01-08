@@ -6,7 +6,7 @@
     {
         public async Task<GetBasketResult> Handle(GetBasketQuery query, CancellationToken cancellationToken)
         {
-            // TODFO get basket from database
+            // TODO get basket from database
             // var basket = await _repository.GetBasket(request.UserName);
 
             return new GetBasketResult(new ShoppingCart("swn"));
