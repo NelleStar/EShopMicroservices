@@ -1,21 +1,36 @@
 services:
   catalogdb:
     image: postgres
+    extends:
+      file: docker-compose.override.yml
+      service: catalogdb
 
   basketdb:
     image: postgres
+    extends:
+      file: docker-compose.override.yml
+      service: basketdb
 
   distributedcache:
     image: redis
+    extends:
+      file: docker-compose.override.yml
+      service: distributedcache
 
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
+    extends:
+      file: docker-compose.override.yml
+      service: catalog.api
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
+    extends:
+      file: docker-compose.override.yml
+      service: basket.api
     build:
       context: .
       dockerfile: Services/Basket/Basket.API/Dockerfile
